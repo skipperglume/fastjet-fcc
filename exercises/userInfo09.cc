@@ -128,7 +128,7 @@ public:
     // We can then access the "pdg_id" member of MyUserInfo to
     // extract the targeted information.
     const int & pdgid = p.user_info<MyUserInfo>().pdg_id();
-    return (pdgid == 111) || (pdgid == 22);
+    return (pdgid == 111) || (pdgid == 22); // 111 is the PDG id of the pi0 and 22 is the PDG id of the photon
   }
 };
 
@@ -196,7 +196,7 @@ int main(){
   //----------------------------------------------------------
   vector<PseudoJet> input_particles;
   
-  double px, py , pz, E;
+  double px, py, pz, E;
   string str;
   int vertex_number=-1;
   int pdg_id = 21;

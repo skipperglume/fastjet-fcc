@@ -80,11 +80,17 @@ int main(){
     particles.push_back(PseudoJet(px,py,pz,E));
   }
 
+  std::cout<<"Total number of particles read in: " << particles.size() << std::endl;
+
   // compute the parameters to be used through the analysis
   // ----------------------------------------------------------
   double Et=0;
-  for (unsigned int i=0; i<particles.size(); i++)
+  for (unsigned int i=0; i<particles.size(); i++){
     Et += particles[i].perp();
+  }
+
+  std::cout<<"Total scalar transverse momentum: " << Et << std::endl;
+
 
   double R, delta_p, delta_r;
   if      (Et>2600){ R=0.4; delta_p=0.05; delta_r=0.19;}
