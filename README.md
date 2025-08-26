@@ -71,26 +71,29 @@ https://fastjet.fr/contrib/
 ```
 
 #### NOTE: `fjcontrib-1.101` requires at least `fastjet-3.4.1`
-Getting `fastjet-contrib`
+### Getting `fastjet-contrib`
+#### `1.101`
 ```bash
 wget https://fastjet.fr/contrib/downloads/fjcontrib-1.101.tar.gz
 tar zxvf fjcontrib-1.101.tar.gz
 cd fjcontrib-1.101/
 ```
 
-Installing `fastjet-contrib`
+#### `1.056`
 ```bash
 wget https://fastjet.fr/contrib/downloads/fjcontrib-1.056.tar.gz
 tar zxvf fjcontrib-1.056.tar.gz
 cd fjcontrib-1.056/
 ```
 
+### Compiling and Installing `fastjet-contrib`
 ```bash
 ./configure --fastjet-config=`pwd`/../fastjet-install/bin/fastjet-config
 make
 make check         # optional
 make install
 ```
+### Curretnly working set up is: `fastjet-3.4.1` and `fjcontrib-1.101`!
 
 [ConstituentSubtractor](https://phab.hepforge.org/source/fastjetsvn/browse/contrib/contribs/ConstituentSubtractor/tags/1.4.7/README?as=source&blame=off)
 
@@ -120,11 +123,26 @@ g++ exercises/boostedTop13.cc -o boostedTop13 `fastjet-install/bin/fastjet-confi
 g++ exercises/userInfo09.cc -o userInfo09 `fastjet-install/bin/fastjet-config --cxxflags --libs --plugins`
 ./userInfo09 < data/Pythia-dijet-ptmin100-lhc-pileup-1ev.dat
 
+```
 
+### Compiling and Running Examples:
+Exercises connected to `ConstituentSubtractor`
+```bash
+# Substractor
 g++ fjcontrib-1.101/ConstituentSubtractor/example_event_wide.cc -o example_event_wide `fastjet-install/bin/fastjet-config --cxxflags --libs --plugins` -lConstituentSubtractor
-
 ./example_event_wide < data/Pythia-Zp2jets-lhc-pileup-1ev.dat
-
+# 
+g++ fjcontrib-1.101/ConstituentSubtractor/example_iterative.cc -o example_iterative `fastjet-install/bin/fastjet-config --cxxflags --libs --plugins` -lConstituentSubtractor
+./example_iterative < data/Pythia-Zp2jets-lhc-pileup-1ev.dat
+# 
+g++ fjcontrib-1.101/ConstituentSubtractor/example_jet_by_jet.cc -o example_jet_by_jet `fastjet-install/bin/fastjet-config --cxxflags --libs --plugins` -lConstituentSubtractor
+./example_jet_by_jet < data/Pythia-Zp2jets-lhc-pileup-1ev.dat
+# 
+g++ fjcontrib-1.101/ConstituentSubtractor/example_whole_event_using_charged_info.cc -o example_whole_event_using_charged_info `fastjet-install/bin/fastjet-config --cxxflags --libs --plugins` -lConstituentSubtractor
+./example_whole_event_using_charged_info < data/Pythia-Zp2jets-lhc-pileup-1ev.dat
+# 
+g++ fjcontrib-1.101/ConstituentSubtractor/example_background_rescaling.cc -o example_background_rescaling `fastjet-install/bin/fastjet-config --cxxflags --libs --plugins` -lConstituentSubtractor
+./example_background_rescaling < data/Pythia-Zp2jets-lhc-pileup-1ev.dat
 ```
 
 
